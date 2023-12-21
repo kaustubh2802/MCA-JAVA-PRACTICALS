@@ -1,0 +1,16 @@
+PracticalNo :-21
+Write and execute a javascript program using document object method thatprints name with welcome message.
+Input:
+
+<html>
+<body>
+<buttononclick="ac()">Result</button>
+<script>functionac()
+{
+alert("Welcome");
+
+
+}
+</script>
+</body>
+</html>
