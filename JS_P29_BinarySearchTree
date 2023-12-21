@@ -1,0 +1,177 @@
+Practical : 29
+ Write a javascript program for binary search tree implementation with its operations
+
+Input
+
+class Node {
+ constructor(value) {
+
+ this.val = value;
+ this.leftChild = null;
+ this.rightChild = null;
+ }
+ }
+ class BinarySearchTree {
+ constructor(root) {
+ this.root = new Node(root);
+ }
+ //insert into bst
+ insert(temp, newValue) {
+ if (temp === null) {
+ temp = new Node(newValue);
+ } else if (newValue < temp.val) {
+ temp.leftChild = this.insert(temp.leftChild, newValue);
+ } else {
+ temp.rightChild = this.insert(temp.rightChild, newValue);
+ }
+ // console.log(temp)
+ return temp;
+ }
+ insertBST(newValue) {
+ if(this.root==null){
+ this.root=new Node(newValue);
+ //return;
+ }
+ else{
+
+ this.insert(this.root, newValue);
+ }
+ }
+ preOrderPrint(temp) {
+ if (temp!==null) {
+ console.log(temp.val);
+ this.preOrderPrint(temp.leftChild);
+ this.preOrderPrint(temp.rightChild);
+ }
+ }
+ inOrderPrint(temp) {
+ if (temp!==null) {
+ this.inOrderPrint(temp.leftChild);
+ console.log(temp.val);
+ this.inOrderPrint(temp.rightChild);
+ }
+ }
+ postOrderPrint(temp) {
+ //if the currentNode IS NOT EQUAL to null
+ if (temp!==null){
+ //make recursivecalltothe left subtree
+ this.postOrderPrint(temp.leftChild);
+ //make recursivecalltothe right subtree
+ this.postOrderPrint(temp.rightChild);
+ //print its value
+ console.log(temp.val);
+ }
+
+ }
+ //delete
+ remove(val)
+ {
+ // root is re-initialized with
+ // root of a modified tree.
+ this.root = this.removeNode(this.root, val);
+ }
+ // Method to remove node with a
+ // given data
+ // it recur over the tree to find the
+ // data and removes it
+ removeNode(node, key)
+ {
+ //to find key element address
+ // if the root is null then tree is
+ // empty
+ if(node === null)
+ return null;
+ // if data to be delete is less than
+ // rootsdatathen move to left subtree
+ else if(key <node.val)
+ {
+ node.leftChild = this.removeNode(node.leftChild, key);
+ return node;
+ }
+ // if data to be delete is greater than
+
+ // roots datathen move to right subtree
+ else if(key >node.val)
+ {
+ node.rightChild = this.removeNode(node.rightChild, key);
+ return node;
+ }
+ // if data is similar to the root's data
+ //thendeletethisnode
+ else
+ {
+ //deleting nodewith no children (adjustment)
+ if(node.leftChild === null && node.rightChild === null)
+ {
+ node = null;
+ return node;
+ }
+ //deletingnodewithonechildren
+ if(node.leftChild ===null)
+ {
+ node = node.rightChild;
+ return node;
+ }
+ else if(node.rightChild === null)
+ {
+ node = node.leftChild;
+ return node;
+ }
+
+ // Deleting node with two children
+ // minumum node of the rigt subtree
+ // is stored in aux
+ var aux = this.findMinNode(node.rightChild);
+ console.log("aux="+aux.val)
+ node.val = aux.val;
+ node.rightChild = this.removeNode(node.rightChild, aux.val);
+ return node;//return to root
+ }
+ }
+ findMinNode(node)
+ {
+ // if left of a node is null
+ // then it must be minimum node
+ if(node.leftChild ===null)
+ return node;
+ else
+ return this.findMinNode(node.leftChild);
+ }
+ }
+ var BST = new BinarySearchTree(6);
+ //console.log("The root val for BST:", BST.root.val)
+ BST.insertBST(8);
+ BST.insertBST(9);
+ BST.insertBST(5);
+ BST.insertBST(2);
+ BST.insertBST(8);
+ BST.insertBST(12);
+ BST.insertBST(10);
+ BST.insertBST(14);
+ BST.remove(10)
+ BST.remove(5)
+ BST.remove(6)
+ console.log("=========================preOrderPrint=================")
+ BST.preOrderPrint(BST.root);
+ console.log("=========================inOrderPrint=================")
+ BST.inOrderPrint(BST.root)
+
+console.log("=========================postOrderPrint=================")
+ BST.postOrderPrint(BST.root)
+
+Output
+Running] node "c:\Users\SATALKAR\Desktop\ArchanaDSAprg\Node .js"
+aux=8
+=========================preOrderPrint=================
+8
+2
+9
+8
+12
+14
+=========================inOrderPrint=================
+2
+8
+8
+9
+12 14 =========================postOrderPrint================= 2 8 14 12 9 8 [Done] exited with code=0 in 0.232 seconds 
