@@ -1,0 +1,43 @@
+PracticalNo :-22
+Write and execute a javascript program which displays a message if thenumberin an input field is less than 100.
+Input:
+
+
+<html>
+<body>
+<form>
+Enteranumber<inputtype="text"id="s"><br>
+<buttononclick="ac()">check</button>
+</form>
+<script>
+functionac()s
+ 
+{
+
+
+
+
+{
+
+
+}
+else
+{
+
+
+}
+}
+ 
+
+
+var x;x=document.getElementById('s').value;if(x<100)
+
+alert(x+"is inrangedof100");
+
+
+
+
+alert(x+"is not inrangedof100");
+ 
+</script>
+</body>
