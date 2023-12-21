@@ -1,0 +1,14 @@
+PracticalNo :-20
+Write and execute the code to implement Navigator object in JavaScript
+Input:
+<html>
+<body>
+<script>document.writeln("appName:"+navigator.appName);
+document.writeln("<br>version:"+navigator.appVersion);
+document.writeln("<br>lang:"+navigator.language);
+document.writeln("<br>platform:"+navigator.plaform);
+document.writeln("<br>userAgent:"+navigator.userAgent);
+document.writeln("<br>appNamecode:"+navigator.appCodeName);
+</script>
+</body>
+</html>
