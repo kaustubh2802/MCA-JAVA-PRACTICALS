@@ -1,0 +1,11 @@
+PracticalNo :-17
+Write and execute the javascript program for finding the Highest and LowestArray Value
+Input:
+<html>
+<body>
+<script>
+vararr=[2,6,1,15,4];
+document.writeln("maxnumis:"+Math.max(...arr));document.writeln("minnumis:"+Math.min(...arr));
+</script>
+</body>
+</html>
