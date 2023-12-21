@@ -1,0 +1,25 @@
+PracticalNo :-18
+Writeandexecutejavascriptprogramtoreturnsthevalueof xrounded downtoitsnearestintegerusing maths object.
+
+Input:
+<html>
+
+<body>
+
+<form>
+
+<inputtype="text"id="s">
+
+<buttononclick="show()">click</button>
+
+</form>
+
+<script>functionshow()
+{
+
+x=document.getElementById("s").value;document.write("roundvalueof"+x+"="+Math.round(x));}
+</script>
+
+</body>
+
+</html>
