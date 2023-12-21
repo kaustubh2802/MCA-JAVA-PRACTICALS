@@ -1,4 +1,4 @@
-Write a program to implement a package
+//Write a program to implement a package
 package p;
 public class gautu{
 public void m1() {
