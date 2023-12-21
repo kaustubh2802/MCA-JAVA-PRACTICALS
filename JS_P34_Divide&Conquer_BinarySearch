@@ -1,0 +1,31 @@
+Practical: 34 
+Write a javascript program to implement Divide and Conquer Technique for Binary Search, 
+
+Input : function binarySearch(sortedList, search
+let Left = 0;
+ let Right = sortedList.length - 1;
+ while (Left <= Right) {
+ let middle = Math.floor((Left + Right) / 2);
+ if (sortedList[middle] === searchvalue) {
+ //foundthesearchvalue
+ return middle;
+ } else if (sortedList[middle] < searchvalue) {
+ // continuesearching tothe right
+ Left = middle + 1;
+ } else {
+ // search searching to the left
+ Right= middle -1;
+ }
+ }
+ // serachvalue wasn't found
+ return -1;
+ }
+ sortedArray=[ 5,10,12,15,20,60,100];
+ console.log(binarySearch(sortedArray,20));
+
+OutPut:
+
+[Running] node "c:\Users\SATALKAR\Desktop\ArchanaDSAprg\sortedList.js"
+4
+[Done] exited with code=0 in 0.181 seconds
+
