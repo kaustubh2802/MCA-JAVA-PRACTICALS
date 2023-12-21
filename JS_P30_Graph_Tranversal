@@ -1,0 +1,116 @@
+Practical : 30
+
+ Write a javascript program for Graph implementation and graph traversal 
+
+Input :
+class Graph
+{
+ constructor(NoV)
+ {
+ this.NoV = NoV;
+ this.adjlist = new Map() ;
+ }
+ addvertex(v)
+ {
+ this.adjlist.set(v,[]);
+ }
+ addedge(s,d)
+ {
+ this.adjlist.get(s).push(d);
+ this.adjlist.get(d).push(s);
+ }
+ printG()
+ {
+ var V = this.adjlist.keys();
+ for(var i of V)
+ {
+ var values = this.adjlist.get(i);
+ var conc = "" ;
+ for(var j of values)
+ {
+ conc += j + " ";
+ }
+ console.log(i + "->" +conc);
+ }
+ }
+}
+var g = new Graph(6);
+var vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ];
+// adding vertices
+for (var i = 0; i < vertices.length; i++) {
+ g.addvertex(vertices[i]);
+}
+// adding edges
+g.addedge('A', 'B');
+g.addedge('A', 'D');
+g.addedge('A', 'E');
+g.addedge('B', 'C');
+g.addedge('D', 'E');
+g.addedge('E', 'F');
+g.addedge('E', 'C');
+g.addedge('C', 'F');
+g.printG();
+OutPut:
+[Running] node "c:\Users\SATALKAR\Desktop\ArchanaDSAprg\Graph.js"
+A->B D E
+B->A C
+C->B E F
+D->A E
+E->A D F C
+=0 in 0.208 seconds F->E C[Done] exited with code
+Name: Archana Navneet Pimpale 
+Practical : 31 
+
+Write a javascript program for Implementation of Hashing 
+
+Input :
+class HashTable{
+ constructor(size=50){
+ this.buckets = new Array(size)
+ this.size = size
+ }
+ hash(key){
+ return key.toString().length % this.size;
+ }
+
+ // Insert data
+ setItem(key,value){
+ let index = this.hash(key);
+
+ if(!this.buckets[index]){
+ this.buckets[index] = [];
+ }
+
+ this.buckets[index].push([key,value])
+ return index
+ }
+ // Search data
+ getItem(key){
+ let index = this.hash(key);
+
+ if(!this.buckets[index])return null
+
+ for(let bucket of this.buckets[index]){
+ // key
+ if(bucket [0] === key){
+ // value
+ return bucket [1]
+ }
+ }
+ }
+ }
+ const hashTable = new HashTable();
+ // Insert data to the hash table
+ hashTable.setItem("101","Data structures algorithms");
+ hashTable.setItem("102","Data analytics");
+ hashTable.setItem("200","Cyber security");
+ hashTable.setItem("bk330","S/W Development");
+ // Search data from the hash table
+ hashTable.getItem("102");
+ console.log(hashTable.getItem("102"));
+
+OutPut:
+ [Running] node "c:\Users\SATALKAR\Desktop\ArchanaDSAprg\class HashTable.js"
+Data analytics
+[Done] exited with code=0 in 0.183 seconds
+
