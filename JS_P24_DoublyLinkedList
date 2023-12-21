@@ -1,0 +1,258 @@
+Practical:24
+Write  a javascript program to implement singly and doublylinkedlist.
+Implement add,delete,display functions
+Input:
+
+class Node {
+
+constructor(element) {
+
+this.element = element;
+
+this.next = null
+
+}
+
+}
+
+class LinkedList {
+
+constructor() {
+
+this.head = null;
+
+this.size = 0;
+
+}
+
+add(element) {
+
+var node = new Node(element);
+
+var current;
+
+if (this.head == null)
+
+this.head = node;
+
+else {
+
+current = this.head;
+
+while (current.next) {
+
+current = current.next;
+
+}
+
+current.next = node;
+
+}
+
+this.size++;
+
+}
+
+removeElement(element) {
+
+var current = this.head;
+
+var prev = null;
+
+while (current != null) {
+
+if (current.element === element) {
+
+if (prev == null) {
+
+this.head = current.next;
+
+} else {
+
+prev.next = current.next;
+
+}
+
+this.size--;
+
+return current.element;
+
+}
+
+prev = current;
+
+current = current.next;
+
+}
+
+return -1;
+
+}
+
+printList() {
+
+var curr = this.head;
+
+var str = "";
+
+while (curr) {
+
+str += curr.element + " ";
+
+curr = curr.next;
+
+}
+
+console.log(str);
+
+}
+
+}
+
+var aa = new LinkedList();
+
+// adding element to the list
+
+aa.add(16);
+
+aa.add(26);
+
+aa.add(36);
+
+aa.add(46);
+
+// prints the elements in the linklist
+
+aa.printList();
+
+// remove 46 from the list
+
+
+console.log("is element removed ?" + aa.removeElement(46));
+// prints the elements in the linklist aa.printList();
+Output :
+[Running]node"c:\Users\SATALKAR\Desktop\ArchanaDSAprg\linkedlist.js"
+16263646
+iselementremoved?46
+162636
+
+[Done]exitedwithcode=0in0.274seconds
+
+
+
+
+
+
+
+
+
+Doubly Link list : Input :
+
+
+}
+
+function DoublyLinkedList() {
+
+this.head = new Head(null);
+
+this.toString = () => {
+
+let currentNode = this.head.next;
+
+if(!this.head.next){
+
+return`[next] => null`;
+
+}else{
+
+checkType = (node,str) => (node === null ? "null" : str);
+
+let prev = checkType(currentNode.prev,"prev");
+
+let next = checkType(currentNode.next,"next");
+
+let displayList = `[next] => [${prev} | ${currentNode.value} | ${next}]`;
+
+while(currentNode.next) {
+
+currentNode = currentNode.next;
+
+prev = checkType(currentNode.prev,"prev");
+
+next = checkType(currentNode.next,"next");
+
+displayList = `${displayList} [${prev} | ${currentNode.value} | ${next}]`;
+
+}
+
+return displayList;
+
+}
+
+};
+
+this.insert = value => {
+
+if (!this.head.next) {
+
+this.head.next = new Node(value,null,null);
+
+return;
+
+}
+
+let currentNode = this.head.next;
+
+let lastNode = currentNode;
+
+while(currentNode.next){
+
+lastNode = currentNode;
+
+currentNode = currentNode.next;
+
+}
+
+currentNode.next = new Node(value, null, lastNode);
+
+};
+
+this.remove = () => {
+
+if(!this.head.next){
+
+throw Error("List is emoty");
+
+}
+
+let currentNode = this.head;
+
+let lastNode = currentNode;
+
+while(currentNode.next){
+
+lastNode = currentNode;
+
+currentNode= currentNode.next;
+
+}
+
+constremoved=currentNode.value; lastNode.next = null;
+returnremoved;
+
+}
+
+}
+
+constmyList=newDoublyLinkedList(); console.log(myList.toString()); myList.insert(0); console.log(myList.toString()); myList.insert(11);
+myList.insert(131); myList.insert(251); console.log(myList.toString()); myList.remove(251);
+console.log(myList.toString());
+
+
+Output:
+
+[Running]node"c:\Users\SATALKAR\Desktop\ArchanaDSAprg\javascript\doublylink.js" [next] => null
+[next]=>[null|0|null]
+[next]=>[null|0|next][prev|11|next][prev|131|next][prev|251|null] [next] => [null | 0 | next] [prev | 11 | next] [prev | 131 | null]
+
+[Done]exitedwithcode=0in0.19seconds
