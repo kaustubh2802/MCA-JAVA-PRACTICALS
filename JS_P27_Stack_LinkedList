@@ -1,0 +1,343 @@
+Practical : 27
+Write a java script program to Implement Stackusing LinkedList
+ Input:class Node
+{
+constructor()
+{
+this.data=0; this.link=null;
+}
+}
+class StackUsingLinkedlist
+{
+constructor()
+{
+this.top=null;
+}
+push(x)
+{
+
+if (temp == null) {
+
+return;
+
+if (temp == null) {
+
+return;
+}
+peek()
+{
+if (!this.isEmpty()) { return this.top.data;
+}
+else {
+console.log("Stack is empty<br>"); return -1;
+}
+}
+pop()
+{
+
+
+if (this.top == null) {
+console.log("Stack Underflow");
+return;
+}
+
+
+
+
+this.top = this.top.link;
+}
+
+
+display()
+{
+
+
+if (this.top == null) {
+console.log("Stack Underflow");
+
+
+}
+else {
+let temp = this.top;
+while (temp != null) {
+
+
+// print node data
+
+console.log(temp.data);
+
+
+// assign temp link to temp
+temp = temp.link;
+}
+}
+}
+}
+
+
+
+
+let obj = new StackUsingLinkedlist();
+// insert Stack value
+obj.push(19);
+obj.push(23);
+obj.push(34);
+obj.push(41);
+
+
+// print Stack elements
+obj.display();
+
+
+// print Top element of Stack
+console.log("Top element is ", obj.peek());
+
+
+// Delete top element of Stack
+
+
+obj.pop();
+obj.pop();
+
+
+// print Stack elements obj.display();
+// print Top element of Stack console.log("Top element is ", obj.peek());
+OutPut:
+
+[Running] node "c:\Users\SATALKAR\Desktop\ArchanaDSAprg\class StackUsingLinkedlist.js" 41
+34
+23
+19
+Top element is 41 23
+19
+Top element is 23
+
+[Done] exited with code=0 in 0.186 seconds
+
+ 
+
+Name:Archana Navneet Pimpale Practical : 28
+Write a java script program to implement Linear  Queue,CircularQueue,PriorityQueue
+
+LinearQueue:
+
+Input :
+
+
+
+// view the last element
+peek() {
+return this.items[this.items.length - 1];
+}
+
+
+// check if the queue is empty
+isEmpty(){
+return this.items.length == 0;
+}
+
+
+// the size of the queue
+size(){	return this.items.length;
+}
+
+
+// empty the queue
+clear(){
+this.items = [];
+}
+}
+
+
+let queue = new Queue();
+queue.enqueue(1);
+queue.enqueue(2);
+
+queue.enqueue(4); queue.enqueue(8); console.log(queue.items);
+
+queue.dequeue(); console.log(queue.items);
+
+console.log(queue.peek());
+
+
+console.log(queue.isEmpty());
+
+
+console.log(queue.size());
+
+queue.clear(); console.log(queue.items);
+Output :
+
+[Running] node "c:\Users\SATALKAR\Desktop\ArchanaDSAprg\Queue.js" [ 1, 2, 4, 8 ]
+[ 2, 4, 8 ]
+8
+false 3
+[]
+
+[Done] exited with code=0 in 0.181 seconds
+
+
+CircularQueue:
+
+class CircularQueue
+{
+constructor(size)
+{
+this.data=[];
+this.size=size;
+this.length=0;
+this.front=0;
+this.rear=-1;
+}
+isEmpty()
+{
+return (this.length==0)
+}
+enqueue(element)
+{
+if(this.length>=this.size)
+console.log("full");
+//rear=(rear+1)%size;
+this.data[(this.rear+1)%this.size] =element;// data[0]=10
+this.length++;
+}
+
+print()
+{
+for(let i=0;i<this.data.length;i++)
+{
+console.log[this.data[i]];
+}
+}
+getfront()
+{
+if(this.isEmpty())
+{
+console.log("no element in circular queue");
+}
+return this.data[(this.front) % (this.size)];
+}
+
+
+dequeue()
+{
+if(this.isEmpty())
+console.log("no element");
+const value= this.getfront();
+this.data[this.front%this.size]=null;
+this.front++;
+this.length--;
+
+console.log(value);
+}
+}
+cq=new CircularQueue(5); cq.enqueue(10); cq.enqueue(15); cq.enqueue(16); cq.enqueue(17); cq.enqueue(18); console.log("deleted element "); cq.dequeue();
+console.log(cq);
+OutPut:
+
+[Running] node "c:\Users\SATALKAR\Desktop\ArchanaDSAprg\CircularQueue.js"
+
+deleted element 18
+CircularQueue { data: [ null ], size: 5,
+length: 4,
+front: 1,
+rear: -1
+}
+
+[Done] exited with code=0 in 0.234 seconds
+
+
+
+PriorityQueue: Input :
+
+class QElement {
+ constructor(element, priority)
+ {
+ this.element = element;
+ this.priority = priority;
+ }
+}
+class PriorityQueue {
+ constructor()
+ {
+ this.items = [];
+ }
+ enqueue(element, priority)
+ {
+ var qElement = new QElement(element, priority);
+ var contain = false;
+ for (var i = 0; i < this.items.length; i++) {
+ if (this.items[i].priority > qElement.priority) {
+ this.items.splice(i, 0, qElement);
+ contain = true;
+ break;
+ }
+ }
+ if (!contain) {
+ this.items.push(qElement);
+ }
+ }
+ dequeue()
+ { if (this.isEmpty())
+ return "Underflow";
+ return this.items.shift();
+ }
+ front()
+ {
+ if (this.isEmpty())
+ return "No elements in Queue";
+ return this.items[0];
+ }
+ rear()
+ {
+ if (this.isEmpty())
+ return "No elements in Queue";
+ return this.items[this.items.length - 1];
+ }
+ isEmpty()
+ {
+ return this.items.length == 0;
+ }
+ printPQueue()
+ {
+ var str = "";
+ for (var i = 0; i < this.items.length; i++)
+ str += this.items[i].element + " ";
+ return str;
+ }
+}
+var priorityQueue = new PriorityQueue();
+console.log("Is Queue Empty :",priorityQueue.isEmpty());
+console.log(priorityQueue.front());
+priorityQueue.enqueue("Dhanu", 2);
+priorityQueue.enqueue("Shivani", 1);
+priorityQueue.enqueue("Gautami", 1);
+priorityQueue.enqueue("Aditi", 2);
+priorityQueue.enqueue("Sakshi", 3);
+console.log("Elements of Priority Queue :");
+console.log(priorityQueue.printPQueue());
+console.log("Front element:",priorityQueue.front().element);
+console.log("Rear element :",priorityQueue.rear().element);
+console.log("Deleting element :",priorityQueue.dequeue().element);
+console.log("Elements of Priority Queue :");
+console.log(priorityQueue.printPQueue());
+priorityQueue.enqueue("Ankita", 2);
+console.log("New Elements of Priority Queue:");
+console.log(priorityQueue.printPQueue()); 
+
+Output
+ 
+[Running] node "c:\Users\SATALKAR\Desktop\ArchanaDSAprg\QElement.js"
+Is Queue Empty : true
+No elements in Queue
+Elements of Priority Queue :
+Shivani Gautami Dhanu Aditi Sakshi
+Front element: Shivani
+Rear element : Sakshi
+Deleting element : Shivani
+Elements of Priority Queue :
+Gautami Dhanu Aditi Sakshi
+New Elements of Priority Queue:
+Gautami Dhanu Aditi Ankita Sakshi
+[Done] exited with code=0 in 0.235 seconds
+Name: A
