@@ -1,0 +1,42 @@
+Practical: 25
+Write a javascript program for STACK implementation using Array with PUSH,POP operations
+Input :
+class Stack
+{
+constructor(items)
+{
+this.items = [];
+}
+add(element)
+{
+this.items.push(element);
+}
+pop(element)
+{
+if(this.items.length == 0)
+{
+return " Underflow" ;
+
+
+}
+this.items.pop(element);
+}
+print()
+{
+let str = "" ;
+for(let i = 0 ; i < this.items.length ; i++)
+{
+str += this.items + " ";
+}
+console.log(str);
+}
+}
+const s = new Stack(); s.add(10);
+s.add(2);
+s.add(33);
+s.add(44);
+s.print();
+Output:
+[Running] node "c:\Users\SATALKAR\Desktop\ArchanaDSAprg\Stack.js" 10,2,33,44 10,2,33,44 10,2,33,44 10,2,33,44
+
+[Done] exited with code=0 in 0.255 seconds
