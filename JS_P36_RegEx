@@ -1,0 +1,57 @@
+Practical: 36 
+Write a javascript program to implement Regular Expression Matching 
+Input :
+const regexMatching = (str, p) => {
+ const ZERO_OR_MORE_CHARS = '*';
+ const ANY_CHAR = '.';
+ const match = Array(str.length + 1).fill(null).map(() => {
+ return Array(p.length + 1).fill(null);
+ });
+ match[0][0] = true;
+ for (let col = 1; col <= p.length; col += 1) {
+ const patternIndex = col - 1;
+ if (p[patternIndex] === ZERO_OR_MORE_CHARS) {
+ match[0][col] = match[0][col - 2];
+ } else {
+ match[0][col] = false;
+ }
+ }
+ for (let row = 1; row <= str.length; row += 1) {
+ match[row][0] = false;
+ }
+ for (let row = 1; row <= str.length; row += 1) {
+ for (let col = 1; col <= p.length; col += 1) {
+ const stringIndex = row - 1;
+ const patternIndex = col - 1;
+ if (p[patternIndex] === ZERO_OR_MORE_CHARS) {
+ if (match[row][col - 2] === true) {
+ match[row][col] = true;
+ } else if (
+ (
+ p[patternIndex - 1] === str[stringIndex]
+ || p[patternIndex - 1] === ANY_CHAR
+ )
+ && match[row - 1][col] === true
+ ) {
+ match[row][col] = true;
+ } else {
+ match[row][col] = false;
+ }
+ } else if (
+ p[patternIndex] === str[stringIndex]
+ || p[patternIndex] === ANY_CHAR
+ ) {
+ match[row][col] = match[row - 1][col - 1];
+ } else {
+ match[row][col] = false;
+ }
+ }
+ }
+ return match[str.length][p.length];
+ };
+ console.log(regexMatching('aab', 'c*a*b'));
+
+OutPut:
+[Running] node "c:\Users\SATALKAR\Desktop\ArchanaDSAprg\const regexMatching .js"
+true
+[Done] exited with code=0 in 0.227 seconds
