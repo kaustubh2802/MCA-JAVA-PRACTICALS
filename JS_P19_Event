@@ -1,0 +1,22 @@
+PracticalNo :-19
+Write and execute javascript program for creating mouse events.
+
+Input:
+<html>
+<body>
+<buttononclick="add()">click</button>
+<inputtype="text"id="s">
+<buttononmouseover="show()">show</button>
+<script>functionadd()
+{
+alert("hiiipoono");
+}
+functionshow()
+{
+x=document.getElementById("s").value;document.write(x);
+}
+
+
+</script>
+</body>
+</html>
