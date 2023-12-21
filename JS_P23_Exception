@@ -1,0 +1,24 @@
+PracticalNo :-23
+Write and executejavascript program which examines input. If the value iswrong,an  exception (err) isthrown.
+Input:
+
+<Html>
+<body>
+<form>
+<buttononclick="ac()">valid</button>
+</form>
+<script>functionac()
+{
+try
+{
+var a=10,x=0;varc=a/x;
+document.write("divide"+c);
+}
+catch(e)
+{
+document.write("Exceptionoccur"+e);
+}
+}
+</script>
+</body>
+</html>
